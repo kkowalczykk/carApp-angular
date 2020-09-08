@@ -1,0 +1,16 @@
+<form #form='ngForm'  autocomplete="off">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="apiService.car.id" >
+    <div class="form-group">
+        <label>Name</label>
+        <input name="name" #name="ngModel" class="form-control" [(ngModel)]="apiService.car.name" required>
+        <div class="validation-error" *ngIf="name.invalid && name.touched">This field is required</div>
+    </div>
+    <div class="form-group">
+        <label>Date of production</label>
+        <input name="productionDate" #productionDate="ngModel" class="form-control" [(ngModel)]="apiService.car.productionDate" type="date" required>
+        <div class="validation-error" *ngIf="productionDate.invalid && productionDate.touched">This field is required</div>
+    </div>
+    <button *ngIf="id.value==null" (click)="onSubmit(form)" [disabled]="form.invalid" class="btn btn-primary btn-block">Submit</button>
+    <button *ngIf="id.value!=null" (click)="editRecord(form)" [disabled]="form.invalid" class="btn btn-primary btn-block">Edit</button>
+    <button *ngIf="id.value!=null" (click)="resetForm()" [disabled]="form.invalid" class="btn btn-danger btn-block mt-2">Stop editing</button>
+</form>
