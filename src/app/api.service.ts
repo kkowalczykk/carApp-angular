@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Car } from 'src/models/Car.model';
 
 @Injectable({
@@ -7,9 +7,9 @@ import { Car } from 'src/models/Car.model';
 })
 export class ApiService {
 
-  api = 'http://localhost:8080/api/cars';
-  
-  
+  api = 'https://kowalczyk-car-app.herokuapp.com//api/cars';
+
+
   car: Car;
   list: Car[];
 
@@ -17,21 +17,21 @@ export class ApiService {
 
   }
 
-  getData(){
-    return this.httpClient.get(this.api+'/all')
-    .toPromise().then(res => this.list = res as Car[]).then(res => console.log(this.list));
+  getData() {
+    return this.httpClient.get(this.api + '/all')
+      .toPromise().then(res => this.list = res as Car[]).then(res => console.log(this.list));
   }
 
-  postData(cassette: Car){
-    return this.httpClient.post(this.api,cassette);
+  postData(cassette: Car) {
+    return this.httpClient.post(this.api, cassette);
   }
 
-  putData(cassette: Car){
-    return this.httpClient.put(this.api,cassette);
+  putData(cassette: Car) {
+    return this.httpClient.put(this.api, cassette);
   }
 
-  deleteData(id: number){
-    return this.httpClient.delete(this.api+'?index='+id);
+  deleteData(id: number) {
+    return this.httpClient.delete(this.api + '?index=' + id);
   }
 
 }
