@@ -1,7 +1,20 @@
-<table class="table">
-    <tr *ngFor="let car of apiService.list">
-        <td>{{car.name}}</td>
-        <td>{{car.productionDate}}</td>
-        <td><button class="btn btn-sm btn-info" (click)="fillForm(car)">Edit</button><button class="btn btn-sm btn-danger ml-2" (click)="deleteRecord(car)">Delete</button></td>
-    </tr>
-</table>
+<div class="table-responsive text-nowrap">
+    <table class="table w-auto">
+        <thead>
+            <tr>
+                <th class="th-lg">Name</th>
+                <th class="th-lg">Production Date</th>
+                <th class="th-lg"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of apiService.list">
+                <td>{{car.name}}</td>
+                <td>{{car.productionDate}}</td>
+                <td><button class="btn btn-sm btn-info" (click)="fillForm(car)">Edit</button><button
+                        class="btn btn-sm btn-danger ml-2" (click)="deleteRecord(car.id)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

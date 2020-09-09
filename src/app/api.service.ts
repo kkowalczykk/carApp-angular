@@ -7,7 +7,7 @@ import { Car } from 'src/models/Car.model';
 })
 export class ApiService {
 
-  api = 'https://kowalczyk-car-app.herokuapp.com//api/cars';
+  api = 'https://kowalczyk-car-app.herokuapp.com/api/cars';
 
 
   car: Car;
